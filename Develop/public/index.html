@@ -41,7 +41,23 @@
     <canvas id="myChart"></canvas>
   </div>
 
+  
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="js/idb.js"></script>
   <script src="js/index.js"></script>
+  <!-- registers the service worker if it's located in the navigator -->
+  <script>  
+    (function() {
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js", { scope: "/" }).then(reg => {
+          console.log("Service Worker registered successfully!", reg)
+        })
+        .catch(err => {
+          console.log("service worker register error message" + err);
+        })
+      }
+    })();
+  </script>
+
 </body>
 </html>
